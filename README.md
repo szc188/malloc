@@ -16,4 +16,5 @@ USAGE :
 EXAMPLE :
 
 ./LD_PRELOAD=./libmy_malloc.so ./ls
+
 ./LD_PRELOAD=./libmy_malloc.so ./ls -R
