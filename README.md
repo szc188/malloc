@@ -8,3 +8,12 @@ library compiled by your Makefile.
 void *malloc(size_t  size);
 void *realloc(void *ptr , size_t  size);
 void  free(void *ptr);
+
+USAGE :
+
+./LD_PRELOAD=./libmy_malloc.so {command}
+
+EXAMPLE :
+
+./LD_PRELOAD=./libmy_malloc.so ./ls
+./LD_PRELOAD=./libmy_malloc.so ./ls -R
