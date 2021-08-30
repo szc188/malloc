@@ -21,6 +21,7 @@ block_t *find_block_equal(block_t *block, void *ptr)
 
 block_t *find_block(const size_t size, block_t *block)
 {
+    block_t *last_block = block;
     if (!block)
         return (NULL);
     while (block) {
@@ -39,6 +40,11 @@ block_t *find_block(const size_t size, block_t *block)
             block->next->free = true;
             return (block);
         }
+        // bugfix: The value of unused memory is not necessarily 0
+        if (block->previous != last_block) {
+            return (NULL);
+        }
+        last_block = block;
         block = block->next;
     }
     return (NULL);
